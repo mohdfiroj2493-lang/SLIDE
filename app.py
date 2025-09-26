@@ -346,11 +346,11 @@ st.caption("Circular & non-circular (polyline) slip surfaces; Bishop, Spencer, G
 
 with st.sidebar:
     st.header("Geometry")
-    L = st.number_input("Horizontal extent L (m)", 40.0)
-    H = st.number_input("Slope height H (m)", 10.0)
+    L = st.number_input("Horizontal extent L (m)", value=40.0)
+    H = st.number_input("Slope height H (m)", value=10.0)
     beta = st.slider("Slope angle β (deg)", 10.0, 60.0, 30.0)
-    crest = st.number_input("Crest length (m)", 10.0)
-    toe = st.number_input("Toe length (m)", 10.0)
+    crest = st.number_input("Crest length (m)", value=10.0)
+    toe = st.number_input("Toe length (m)", value=10.0)
     x0 = 0.0
     x1 = crest
     x2 = crest + H / math.tan(math.radians(beta))
@@ -401,12 +401,12 @@ with st.sidebar:
     st.subheader("Search settings")
     if surface_type == 'Circular':
         search_type = st.selectbox("Search strategy", ["Grid", "Monte Carlo"], index=1)
-        xmin = st.number_input("Cx min", -0.5 * L, value=-10.0)
-        xmax = st.number_input("Cx max", 1.5 * L, value=x3 + 20.0)
-        ymin = st.number_input("Cy min", -L, value=-30.0)
+        xmin = st.number_input("Cx min", value=-10.0)
+        xmax = st.number_input("Cx max", value=x3 + 20.0)
+        ymin = st.number_input("Cy min", value=-30.0)
         ymax = st.number_input("Cy max", 2 * H, value=H)
-        Rmin = st.number_input("R min", 5.0)
-        Rmax = st.number_input("R max", 200.0)
+        Rmin = st.number_input("R min", value=5.0)
+        Rmax = st.number_input("R max", value=200.0)
         if search_type == "Grid":
             nx = st.slider("grid nx", 5, 60, 20)
             ny = st.slider("grid ny", 3, 40, 10)
