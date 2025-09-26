@@ -401,12 +401,12 @@ with st.sidebar:
     st.subheader("Search settings")
     if surface_type == 'Circular':
         search_type = st.selectbox("Search strategy", ["Grid", "Monte Carlo"], index=1)
-        xmin = st.number_input("Cx min", value=-10.0)
-        xmax = st.number_input("Cx max", value=x3 + 20.0)
-        ymin = st.number_input("Cy min", value=-30.0)
-        ymax = st.number_input("Cy max", 2 * H, value=H)
-        Rmin = st.number_input("R min", value=5.0)
-        Rmax = st.number_input("R max", value=200.0)
+        xmin = st.number_input("Cx min", value=float(-0.5 * L))
+        xmax = st.number_input("Cx max", value=float(x3 + 20.0))
+        ymin = st.number_input("Cy min", value=float(-L))
+        ymax = st.number_input("Cy max", value=float(2 * H))
+        Rmin = st.number_input("R min", value=5.0, min_value=0.0)
+        Rmax = st.number_input("R max", value=200.0, min_value=0.0)
         if search_type == "Grid":
             nx = st.slider("grid nx", 5, 60, 20)
             ny = st.slider("grid ny", 3, 40, 10)
